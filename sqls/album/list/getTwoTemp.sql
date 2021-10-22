@@ -31,12 +31,16 @@ select
         ) AS INTEGER 
     ) comment_count,
     -- is_like
-    CAST(
-        (select count(*) 
+    (1=CAST(
+        (select 
+            count(*) 
         from likes l 
-        where l.post_id = p.id
-        ) AS INTEGER
-    ) like_count,
+            join member m on l.member_id = m.id 
+        where 
+            l.post_id = p.id 
+            and l.member_id ='${PostInputDTO.member_id}') AS INTEGER
+        )
+    ) is_like,
     -- is_bookmark
     (1=CAST(
         (select count(*) 
