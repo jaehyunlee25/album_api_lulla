@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     return await main(req, res);
   } catch (e) {
     return ERROR(res, {
-      id: 'ERR.album.album.3.2.2',
+      id: 'ERR.album.update.3.2.2',
       message: 'post server logic error',
       error: e.toString(),
     });
