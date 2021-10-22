@@ -9,6 +9,17 @@ import setBaseURL from '../../../lib/pgConn'; // include String.prototype.fQuery
 const QTS = {
   // Query TemplateS
   getAlbum: 'getAlbumById',
+  setAlbum: 'setAlbum',
+  setAlbumPub: 'setAlbumPub',
+  delAM: 'delAllowedMember',
+  newAMs: 'newAllowedMembers',
+  delAC: 'delAllowedClass',
+  newACs: 'newAllowedClasses',
+  getPF: 'getPostFile',
+  newPF: 'newPostFile',
+  getAlbumData: 'getAlbumData',
+  getAllComments: 'getAllComments',
+  getAllLikes: 'getAllLikes',
 };
 
 // req.body를 만들지 않도록 한다.

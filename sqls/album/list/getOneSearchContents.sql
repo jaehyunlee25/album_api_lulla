@@ -36,10 +36,10 @@ select
         (select 
             count(*) 
         from likes l 
-            join member m on l.member_id = m.id 
+            join members m on l.member_id = m.id 
         where 
             l.post_id = p.id 
-            and l.member_id ='${PostInputDTO.member_id}') AS INTEGER
+            and l.member_id ='${memberId}') AS INTEGER
         )
     ) is_like,
     -- is_bookmark

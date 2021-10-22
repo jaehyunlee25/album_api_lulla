@@ -5,7 +5,8 @@ select
     p.contents contents, 
     p.is_modified is_modified,
     to_char(p.published_time, 'YYYY-MM-DD"T"HH24:MI:ss.MS"Z"') published_time, 
-    p.important, p.author_id,
+    p.important, 
+    p.author_id,
     to_char(p.created_at, 'YYYY-MM-DD"T"HH24:MI:ss.MS"Z"') created_at, 
     s.id survey_id, 
     to_char(s.end_date, 'YYYY-MM-DD"T24:00:00.000Z"') survey_end_date,
@@ -35,10 +36,10 @@ select
         (select 
             count(*) 
         from likes l 
-            join member m on l.member_id = m.id 
+            join members m on l.member_id = m.id 
         where 
             l.post_id = p.id 
-            and l.member_id ='${PostInputDTO.member_id}') AS INTEGER
+            and l.member_id ='${memberId}') AS INTEGER
         )
     ) is_like,
     -- is_bookmark
